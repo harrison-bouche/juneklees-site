@@ -1,0 +1,6 @@
+# Written by Sherpa for optional Cloudflare Pages / Wrangler deploys.
+# Sherpa’s one-click publish generates locally and uploads the static folder instead.
+
+name = "juneklees"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "storage/app/static"

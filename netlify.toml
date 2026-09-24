@@ -1,0 +1,10 @@
+# Written by Sherpa for optional Git-based Netlify builds.
+# Sherpa’s one-click publish generates locally and uploads the static folder instead.
+
+[build]
+  command = "npm ci && npm run build && php please ssg:generate"
+  publish = "storage/app/static"
+
+[build.environment]
+  PHP_VERSION = "8.3"
+  NODE_VERSION = "20"
