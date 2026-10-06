@@ -48,7 +48,7 @@ Alpine.data('navigation', () => ({
     media: null,
     sync: null,
     init() {
-        this.media = window.matchMedia('(min-width: 64rem)')
+        this.media = window.matchMedia('(min-width: 768px)')
         this.sync = () => {
             const desktopChanged = this.desktop !== this.media.matches
             this.desktop = this.media.matches

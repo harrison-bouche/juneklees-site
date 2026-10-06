@@ -1,14 +1,17 @@
-site_name: 'Cool Writings'
+site_name: 'June Klees, Ph.D'
+website_logo: site/juneklees-logo.svg
 social:
   -
-    name: Twitter
-    url: 'https://twitter.com/jackmcdade'
-    icon: site/social-icons/twitter.svg
-  -
-    name: Github
-    url: 'https://github.com/statamic/starter-kit-cool-writings'
-    icon: site/social-icons/github.svg
-  -
+    id: GaclEpHG
     name: Email
-    url: 'mailto:jack@statamic.com'
+    url: 'mailto:compassamerica76@gmail.com'
     icon: site/social-icons/email.svg
+  -
+    id: pS3DolQNkZ0KMu_0CzHRM
+    name: Substack
+    url: 'https://junek20.substack.com/'
+    icon: site/social-icons/substack-brands-solid-full.svg
+nav_cta:
+  label: 'Book June'
+  link: 'entry::home'
+footer_content: 'Educator, academic coach, creative consultant, facilitator, podcaster,  speaker, strategist, and humorist (with an 1980s twist) who believes in  the transformative power of explorative applied civics for the greater  well-being of our republic and principled democracy.'

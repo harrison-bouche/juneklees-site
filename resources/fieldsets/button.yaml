@@ -1,0 +1,38 @@
+title: 'Button Group'
+fields:
+  -
+    handle: button_group
+    field:
+      fullscreen: false
+      button_label: 'Add Button'
+      max_sets: 3
+      type: replicator
+      display: 'Button Group'
+      sets:
+        button_group:
+          display: 'Button Group'
+          icon: fieldtype-button_group
+          sets:
+            button:
+              display: Button
+              icon: cursor-click
+              fields:
+                -
+                  handle: label
+                  field:
+                    character_limit: 64
+                    type: text
+                    display: Label
+                    width: 50
+                    validate:
+                      - required
+                    placeholder: 'Learn More'
+                -
+                  handle: link
+                  field:
+                    default_option: entry
+                    type: link
+                    display: Link
+                    width: 50
+                    validate:
+                      - required

@@ -1,36 +1,170 @@
+hide: true
 title: Home
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          character_limit: 0
-          type: text
-          localizable: false
-          display: Title
+        display: Hero
+        fields:
+          -
+            handle: hero_image
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: Image
+          -
+            import: section_heading
+            prefix: hero_
+          -
+            handle: hero_content
+            field:
+              buttons:
+                - bold
+                - link
+              type: markdown
+              display: Content
+          -
+            import: button
+            prefix: hero_
       -
-        handle: subtitle
-        field:
-          character_limit: 0
-          type: text
-          localizable: false
-          display: Subtitle
+        display: Logos
+        fields:
+          -
+            handle: companies
+            field:
+              type: replicator
+              display: Companies
+              button_label: 'Add Company'
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    company:
+                      display: Company
+                      icon: building-generic
+                      fields:
+                        -
+                          handle: company_title
+                          field:
+                            type: text
+                            display: 'Company Title'
+                        -
+                          handle: company_logo
+                          field:
+                            container: assets
+                            max_files: 1
+                            min_files: 1
+                            type: assets
+                            display: 'Company Logo'
+                            folder: companies
       -
-        handle: content
-        field:
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: false
-          escape_markup: true
-          smartypants: false
-          type: markdown
-          localizable: false
-          display: Content
+        display: About
+        fields:
+          -
+            import: section_heading
+            prefix: about_
+          -
+            handle: about_image
+            field:
+              container: assets
+              folder: images
+              max_files: 1
+              type: assets
+              display: Image
+          -
+            handle: about_content
+            field:
+              type: markdown
+              display: Content
+          -
+            import: button
+            prefix: about_
       -
-        handle: template
-        field:
-          type: template
-          localizable: false
-          display: Template
+        display: 'Video Feed'
+        fields:
+          -
+            import: section_heading
+            prefix: video_feed_
+          -
+            handle: video_feed
+            field:
+              button_label: 'Add Video'
+              max_sets: 3
+              type: replicator
+              display: Feed
+              sets:
+                new_youtube_video:
+                  display: 'New YouTube Video'
+                  icon: add-circle
+                  sets:
+                    youtube:
+                      display: 'YouTube Video'
+                      icon: social-youtube-logo
+                      fields:
+                        -
+                          handle: video
+                          field:
+                            type: video
+                            actions: false
+                            validate:
+                              - required
+          -
+            import: button
+            prefix: video_feed_
+      -
+        display: Substack
+        fields:
+          -
+            import: section_heading
+            prefix: substack_
+          -
+            handle: substack_profile_picture
+            field:
+              container: assets
+              folder: images
+              restrict: true
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Profile Picture'
+          -
+            handle: substack_content
+            field:
+              buttons:
+                - bold
+              type: markdown
+              display: Content
+          -
+            import: button
+            prefix: substack_
+      -
+        display: CTA
+        fields:
+          -
+            import: section_heading
+            prefix: cta_
+          -
+            import: button
+            prefix: cta_
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Page Title'
+              validate:
+                - required
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

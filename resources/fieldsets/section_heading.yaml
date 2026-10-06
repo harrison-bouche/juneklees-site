@@ -1,0 +1,35 @@
+title: 'Section Heading'
+fields:
+  -
+    handle: section_heading
+    field:
+      type: group
+      display: 'Section Heading'
+      fields:
+        -
+          handle: supporting_text
+          field:
+            type: text
+            display: 'Supporting Text'
+            width: 50
+        -
+          handle: primary_text
+          field:
+            type: text
+            display: 'Primary Text'
+            width: 50
+            validate:
+              - required
+        -
+          handle: styling
+          field:
+            options:
+              -
+                key: standard
+                value: Standard
+              -
+                key: alternative
+                value: Alternative
+            default: standard
+            type: button_group
+            display: Styling

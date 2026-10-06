@@ -1,0 +1,21 @@
+
+
+{{ if heading:styling === 'standard' }}
+<span class="flex flex-col">
+    <span class="font-stylistic text-3xl">
+        {{ heading:supporting_text }}
+    </span>
+    <span class="font-heading text-4xl lg:text-5xl">
+        {{ heading:primary_text }}
+    </span>
+</span>
+{{ elseif heading:styling === 'alternative' }}
+<span class="flex flex-col gap-2 items-center">
+    <span class="w-72 font-heading text-center text-2xl lg:text-4xl lg:w-full">
+        {{ heading:supporting_text }}
+    </span>
+    <span class="font-stylistic text-center text-5xl lg:text-7xl">
+        {{ heading:primary_text }}
+    </span>
+</span>
+{{ /if }}

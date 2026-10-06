@@ -1,29 +1,50 @@
 title: Page
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          character_limit: 0
-          type: text
-          localizable: false
-          display: Title
+        fields:
+          -
+            import: section_heading
+            prefix: page_
+          -
+            handle: content
+            field:
+              escape_markup: true
+              type: markdown
+              display: Content
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+  sidebar:
+    display: Sidebar
+    sections:
       -
-        handle: content
-        field:
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: false
-          escape_markup: true
-          smartypants: false
-          type: markdown
-          localizable: false
-          display: Content
-      -
-        handle: template
-        field:
-          type: template
-          localizable: false
-          display: Template
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              character_limit: 0
+              display: 'Page Title'
+              validate:
+                - required
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: featured_image
+            field:
+              container: assets
+              folder: images
+              restrict: true
+              max_files: 1
+              type: assets
+              display: 'Featured Image'

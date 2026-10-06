@@ -1,48 +1,80 @@
 title: 'Global Settings'
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: site_name
-        field:
-          character_limit: 0
-          type: text
-          localizable: false
-          display: 'Site Name'
-      -
-        handle: social
-        field:
-          fields:
-            -
-              handle: name
-              field:
-                type: text
-                localizable: false
-                display: Name
-            -
-              handle: url
-              field:
-                character_limit: 0
-                type: text
-                localizable: false
-                display: URL
-            -
-              handle: icon
-              field:
-                container: assets
-                mode: list
-                restrict: true
-                folder: site/social-icons
-                allow_uploads: true
-                max_files: 1
-                type: assets
-                localizable: false
-                display: Icon
-          mode: table
-          add_row: 'Add Link'
-          reorderable: true
-          type: grid
-          instructions: 'Set any social media links'
-          localizable: false
-          display: Social
+        fields:
+          -
+            handle: site_name
+            field:
+              character_limit: 0
+              type: text
+              display: 'Site Name'
+          -
+            handle: website_logo
+            field:
+              container: assets
+              folder: site
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Website Logo'
+          -
+            handle: social
+            field:
+              add_row: 'Add Link'
+              type: grid
+              instructions: 'Set any social media links'
+              display: Social
+              fields:
+                -
+                  handle: name
+                  field:
+                    type: text
+                    localizable: false
+                    display: Name
+                -
+                  handle: url
+                  field:
+                    character_limit: 0
+                    type: text
+                    localizable: false
+                    display: URL
+                -
+                  handle: icon
+                  field:
+                    container: assets
+                    mode: list
+                    restrict: true
+                    folder: site/social-icons
+                    allow_uploads: true
+                    max_files: 1
+                    type: assets
+                    localizable: false
+                    display: Icon
+          -
+            handle: nav_cta
+            field:
+              type: group
+              display: 'Nav CTA'
+              validate:
+                - required
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: Label
+                    width: 50
+                -
+                  handle: link
+                  field:
+                    type: link
+                    display: Link
+                    width: 50
+          -
+            handle: footer_content
+            field:
+              type: markdown
+              display: 'Footer Content'
