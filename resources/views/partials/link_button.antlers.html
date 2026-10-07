@@ -1,12 +1,7 @@
 <a
     href="{{ url }}"
-    class="
-        block text-center uppercase px-10 py-3 only:w-full
-        {{ switch(
-            (style == 'inverted') => 'bg-white text-crimson-dark',
-            () => 'bg-crimson text-white'
-        ) }}
-    "
+    data-style="{{ style }}"
+    class="button"
 >
     {{ slot }}
 </a>

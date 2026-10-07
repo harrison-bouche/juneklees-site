@@ -19,12 +19,18 @@
     </button>
 
     <div id="site-navigation" class="order-5 flex basis-full flex-col gap-1 py-4 motion-reduce:transition-none! motion-reduce:duration-0! md:order-2 md:ml-auto md:basis-auto md:flex-row md:gap-8 md:py-0" x-ref="links" x-show="desktop || open" :inert="! desktop && ! open" x-transition.opacity.duration.180ms x-cloak>
-        {{ nav }}
-            <a href="{{ url }}" class="relative w-fit py-2.5 text-crimson-dark after:invisible after:absolute after:bottom-0 after:left-0 after:h-[0.4rem] after:w-[min(100%,4rem)] after:bg-teal after:content-[''] after:[mask:url(../../public/assets/site/underline.svg)_left_center/contain_no-repeat] hover:text-gray-900 hover:after:visible focus-visible:after:visible aria-[current]:text-gray-900 aria-[current]:after:visible dark:text-gray-300 dark:after:bg-teal-light dark:hover:text-gray-100 dark:aria-[current]:text-gray-100" {{ if is_current }}aria-current="page"{{ elseif is_parent }}aria-current="true"{{ /if }}>{{ title }}</a>
-        {{ /nav }}
+        {{ nav:top_nav }}
+            <a
+                href="{{ url }}"
+                class="relative w-fit py-2.5 text-crimson-dark aria-[current]:underline aria-[current]:font-bold hover:underline"
+                {{ if is_current }}aria-current="page"{{ elseif is_parent }}aria-current="true"{{ /if }}
+            >
+                {{ title }}
+            </a>
+        {{ /nav:top_nav }}
 
         {{ settings:nav_cta }}
-            {{ partial:link_button :url }} {{ label }} {{ /partial:link_button }}
+            {{ partial:link_button :url="link" }} {{ label }} {{ /partial:link_button }}
         {{ /settings:nav_cta }}
     </div>
 

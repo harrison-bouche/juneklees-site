@@ -1,0 +1,11 @@
+<header class="px-5 pt-20 pb-12 sm:px-24 md:px-12">
+    <div class="mx-auto max-w-5xl flex flex-col items-center gap-8 md:gap-12">
+        <h1>
+            {{ partial:section_heading :heading="page_section_heading" }}
+        </h1>
+    </div>
+</header>
+
+<div class="pt-8 pb-12 px-4 mx-auto max-w-[56ch] text-lg leading-[1.8] wrap-anywhere md:pt-0 md:pb-36">
+    <div class="prose">{{ content | widont }}</div>
+</div>

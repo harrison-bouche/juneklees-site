@@ -11,7 +11,7 @@
 
     <div class="flex flex-col gap-6 sm:grid sm:grid-cols-2">
             <div class="space-y-6">
-                <a href="/" class="inline-flex min-h-12 items-center font-light text-white uppercase" aria-label="{{ settings:site_name }} homepage">
+                <a href="/" class="inline-flex min-h-12 items-center font-light text-white uppercase focus-visible:outline-white" aria-label="{{ settings:site_name }} homepage">
                     {{ settings:website_logo }}
                         {{ svg :src="url" class="*:fill-white w-[72px] mr-2 -mb-6" }}
                     {{ /settings:website_logo }}
@@ -26,7 +26,7 @@
                 {{ if settings:social }}
                     <nav class="flex flex-wrap gap-1 col-start-1" aria-label="Social links">
                         {{ settings:social }}
-                            <a href="{{ url }}" class="flex size-12 items-center justify-center text-white bg-crimson-dark" aria-label="{{ name }}" rel="noopener">
+                            <a href="{{ url }}" class="flex size-12 items-center justify-center text-white bg-crimson-dark focus-visible:outline-white" aria-label="{{ name }}" rel="noopener">
                                 {{ svg :src="icon" class="size-4.5 fill-current" aria-hidden="true" focusable="false" }}
                             </a>
                         {{ /settings:social }}
@@ -36,7 +36,7 @@
 
             <nav class="space-y-3.5 text-sm col-start-2 row-start-1">
                 {{ nav }}
-                    <a href="{{ url }}" class="block relative w-fit text-white uppercase" {{ if is_current }}aria-current="page"{{ elseif is_parent }}aria-current="true"{{ /if }}>{{ title }}</a>
+                    <a href="{{ url }}" class="block relative w-fit text-white uppercase focus-visible:outline-white" {{ if is_current }}aria-current="page"{{ elseif is_parent }}aria-current="true"{{ /if }}>{{ title }}</a>
                 {{ /nav }}
             </nav>
 

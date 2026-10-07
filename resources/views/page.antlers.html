@@ -1,7 +1,56 @@
-<div class="relative mx-auto max-w-5xl pt-[clamp(--spacing(11),7vw,--spacing(24))]">
-    {{ partial:margin_mark }}
-    <article class="mx-auto max-w-2xl">
-        <header class="mb-10 sm:mb-14"><h1 class="text-[clamp(2.6rem,5vw,3.75rem)] leading-[1.1] font-[750] tracking-tighter text-pretty wrap-anywhere">{{ title }}</h1></header>
-        <div class="prose max-w-[65ch] text-lg leading-[1.8] wrap-anywhere dark:text-gray-300">{{ content | widont }}</div>
-    </article>
+<header class="px-5 pt-8 pb-12 sm:px-24 md:px-12 md:pb-20 md:pt-16">
+    <div class="mx-auto max-w-5xl flex flex-col items-center gap-8 md:gap-12">
+        <h1>
+            {{ partial:section_heading :heading="page_section_heading" }}
+        </h1>
+    </div>
+</header>
+
+{{ if content }}
+    <div class="pt-8 pb-12 px-4 mx-auto max-w-[56ch] text-lg leading-[1.8] wrap-anywhere md:pt-0 md:pb-36">
+        <div class="prose">{{ content | widont }}</div>
+    </div>
+{{ /if }}
+
+<div class="px-4 pb-12 bg-linear-to-br from-tan-light from-50% to-crimson to-50%">
+    <div class="bg-white shadow-lg max-w-xl mx-auto p-4">
+        {{ form:contact }}
+            {{ if success }}
+                <div class="p-8">
+                    {{ success }}
+                </div>
+            {{ else }}
+                {{ if errors }}
+                    <div class="bg-red-300 text-white p-2">
+                        {{ errors }}
+                            {{ value }}<br>
+                        {{ /errors }}
+                    </div>
+                {{ /if }}
+
+                {{ fields }}
+                    <div class="mb-4">
+                        <label >
+                            <span class="block pb-1.5 cursor-text">
+                                {{ display }}
+                                {{ if validate | contains:required }}
+                                    *
+                                {{ /if }}
+
+                            </span>
+                            {{ field }}
+                        </label>
+                        {{ if error }}
+                            <p class="text-crimson-dark bg-tan-light pl-2 py-1">{{ error }}</p>
+                        {{ /if }}
+                    </div>
+                {{ /fields }}
+
+                <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
+
+                <button type="submit" class="button w-full">Submit</button>
+            {{ /if }}
+
+        {{ /form:contact }}
+    </div>
 </div>

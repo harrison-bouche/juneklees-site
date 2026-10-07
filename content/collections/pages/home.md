@@ -13,7 +13,7 @@ hero_content: |-
   June is oriented toward the creative, and her neurodiversity helps to inform her work style.
 title: 'June Klees, Ph.D'
 updated_by: fe05d842-6ed2-441d-9842-d8a76343bd81
-updated_at: 1791140663
+updated_at: 1791333486
 companies:
   -
     id: TTg5wqB166j6YPtwR5rOe
@@ -46,14 +46,14 @@ about_button_group:
   -
     id: 33aZzjgT1nfqGJGvgf0u6
     label: 'Learn More'
-    link: 'entry::62136fa2-9e5c-4c38-a894-a2753f02f5ff'
+    link: 'entry::b8467f24-4bdb-4bd8-91d7-0fccf8d29eda'
     type: button
     enabled: true
 hero_button_group:
   -
     id: QF_fujyjFU0JpL2ZUk2_C
     label: 'Book Your Talk'
-    link: 'entry::home'
+    link: 'entry::0ecc4df2-a608-450e-aab6-c7d3961c9f65'
     type: button
     enabled: true
 video_feed_section_heading:
@@ -104,7 +104,7 @@ cta_button_group:
   -
     id: hCNKRHU_z9UOOxXg4IoJR
     label: 'Book a Talk'
-    link: 'entry::home'
+    link: 'entry::0ecc4df2-a608-450e-aab6-c7d3961c9f65'
     type: button
     enabled: true
 ---
