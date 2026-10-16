@@ -6,3 +6,5 @@ preferences:
     pages:
       view: list
       after_save: continue_editing
+    content:
+      view: list

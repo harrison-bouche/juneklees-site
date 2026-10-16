@@ -1,0 +1,40 @@
+<header class="px-5 pt-20 pb-12 sm:px-24 md:px-12 md:pb-24">
+    <div class="mx-auto max-w-5xl flex flex-col items-center gap-8 md:gap-12">
+        <h1>
+            {{ partial:section_heading :heading="page_section_heading" }}
+        </h1>
+    </div>
+</header>
+
+<div class="pt-8 pb-12 px-4 mx-auto max-w-[56ch] text-lg leading-[1.8] wrap-anywhere md:pt-0 md:pb-36">
+    <div class="space-y-12">
+        {{ collection:content as="entries" }}
+            {{ entries group_by="appeared_on|Y" | }}
+                {{ groups | sort('key', 'desc') }}
+                    <div>
+                        <h2 class="flex items-center justify-center gap-4 pb-4">
+                            <span class="w-24 h-px bg-crimson"></span>
+                            <span class="font-stylistic text-4xl">{{ group }}</span>
+                            <span class="w-24 h-px bg-crimson"></span>
+                        </h2>
+                        <ul class="grid grid-cols-1 gap-4">
+                            {{ items }}
+                            <li>
+                                {{ if link }} <a href="{{ link }}" target="_blank" class="group"> {{ /if }}
+                                    <article class="flex justify-between items-center gap-6">
+                                        <div class="space-y-1 md:space-y-2">
+                                            <h3 class="text-lg font-heading text-pretty in-[a]:underline md:text-2xl">{{ title }}</h3>
+                                            <p class="italic text-sm">{{ affiliate }}</p>
+                                        </div>
+                                        <p class="font-stylistic whitespace-nowrap text-4xl">{{ appeared_on | format('M d') }}</p>
+                                    </article>
+                                {{ if link }} </a> {{ /if }}
+                            </li>
+                            {{ /items }}
+                        </ul>
+                    </div>
+                {{ /groups }}
+            {{ /entries }}
+        {{ /collection:content }}
+    </div>
+</div>

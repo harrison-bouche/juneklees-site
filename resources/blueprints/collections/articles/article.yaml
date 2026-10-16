@@ -30,11 +30,3 @@ sections:
           type: users
           display: Author
           default: current
-      -
-        handle: topics
-        field:
-          type: terms
-          display: Topics
-          taxonomies:
-            - topics
-          mode: select

@@ -1,0 +1,15 @@
+title: Content
+icon: hero-image-above-text
+template: default
+layout: layout
+mount: 3e8072fe-8b62-4f6f-bfd0-1c82ffebaef8
+revisions: false
+sort_dir: desc
+date_behavior:
+  past: null
+  future: null
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
