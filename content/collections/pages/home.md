@@ -10,10 +10,12 @@ hero_section_heading:
 hero_content: |-
   A social studies educator at heart, **June's presentations and workshops use an intergenerational lens to offer engaging, thought-provoking, and empowering understandings** about how individuals, groups, and communities can develop healthier and more impactful civic mindsets.
 
+  June is a good-humored, creative, and visionary thinker, whose academic background, teaching experience, and neurodiversity inform her work.
+
   As an engaging speaker suitable for all audiences, she creates a welcoming experience and hopes to leave participants understanding how they can concretely shape the future through empowered civic mindsets.
 title: 'June Klees, Ph.D'
 updated_by: fe05d842-6ed2-441d-9842-d8a76343bd81
-updated_at: 1792953079
+updated_at: 1792957680
 companies:
   -
     id: TTg5wqB166j6YPtwR5rOe
