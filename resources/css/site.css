@@ -85,7 +85,7 @@
     }
 
     .button {
-        @apply block text-center uppercase px-10 py-3 only:w-full bg-crimson text-white;
+        @apply block text-center uppercase px-10 py-3 only:w-full bg-crimson text-white no-underline;
 
         &[data-style="inverted"] {
             @apply bg-white text-crimson-dark focus-visible:outline-white;
