@@ -18,7 +18,7 @@
                             <span class="w-24 h-px bg-crimson"></span>
                         </h2>
                         <ul class="grid grid-cols-1 gap-4">
-                            {{ items }}
+                            {{ items | sort('appeared_on', 'desc') }}
                             <li>
                                 {{ if link }} <a href="{{ link }}" target="_blank" class="group"> {{ /if }}
                                     <article class="flex justify-between items-center gap-6">

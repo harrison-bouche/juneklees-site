@@ -5,15 +5,15 @@ template: home
 hero_image: images/ww2-stage-speaking.jpg
 hero_section_heading:
   supporting_text: 'June Klees is'
-  primary_text: 'Bringing Civics Mindsets to Your Organization’s Vision.'
+  primary_text: "Bringing Civic Mindsets to Your Organization's Vision."
   styling: standard
 hero_content: |-
-  A social studies educator at heart, for over thirty years June has been teaching **unique and empowering understandings of civic wellness and  political culture mindsets.**
+  A social studies educator at heart, **June's presentations and workshops use an intergenerational lens to offer engaging, thought-provoking, and empowering understandings** about how individuals, groups, and communities can develop healthier and more impactful civic mindsets.
 
-  June is oriented toward the creative, and her neurodiversity helps to inform her work style.
+  As an engaging speaker suitable for all audiences, she creates a welcoming experience and hopes to leave participants understanding how they can concretely shape the future through empowered civic mindsets.
 title: 'June Klees, Ph.D'
 updated_by: fe05d842-6ed2-441d-9842-d8a76343bd81
-updated_at: 1791333486
+updated_at: 1792953079
 companies:
   -
     id: TTg5wqB166j6YPtwR5rOe
@@ -33,13 +33,19 @@ companies:
     company_logo: companies/better-together-america.svg
     type: company
     enabled: true
+  -
+    id: YLhiKwAb91Dxvfn_s1tfa
+    company_title: 'Health & Democracy'
+    company_logo: companies/health-and-democracy-logo.png
+    type: company
+    enabled: true
 about_image: images/june-headshot.jpg
 about_section_heading:
   supporting_text: 'Civics Professor'
   primary_text: 'Meet June.'
   styling: standard
 about_content: |-
-  June Klees, PhD, is an educator, speaker, and workshop facilitator whose civic wellness work helps people of all ages practice constructive dialogue across difference that is grounded in real-world skills for navigating disagreement with respect, curiosity, and shared purpose. As a writer and expert in American political culture and related reforms, June seeks to help strengthen American civic life by amplifying the work of the US Civic Wellness Movement.
+  June Klees, Ph.D, is an educator, speaker, and workshop facilitator whose civic wellness work helps people of all ages practice constructive dialogue across difference that is grounded in real-world skills for navigating disagreement with respect, curiosity, and shared purpose. As a writer and expert in American political culture and related reforms, June seeks to help strengthen American civic life by amplifying the work of the US Civic Wellness Movement and communities, groups, and individuals to its resources.
 
   June is trained as a social-behavioral sciences and humanities educator and historian and has served in various leadership roles at Bay College in Escanaba, Michigan over her a 30-year career. Her work ultimately seeks to build greater intergenerational understandings in society, while helping individuals and organizations meet their goals.
 about_button_group:

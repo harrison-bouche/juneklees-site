@@ -8,3 +8,8 @@ preferences:
       after_save: continue_editing
     content:
       view: list
+      after_save: create_another
+      columns:
+        - title
+        - affiliate
+        - appeared_on
