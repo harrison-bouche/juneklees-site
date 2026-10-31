@@ -35,3 +35,9 @@ tabs:
               display: Message
               validate:
                 - required
+          -
+            handle: turnstile
+            field:
+              theme: light
+              type: turnstile
+              display: 'Are You Human?'

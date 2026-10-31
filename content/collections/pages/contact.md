@@ -5,8 +5,8 @@ page_section_heading:
   supporting_text: 'Ready to Upgrade Your Civic Wellness?'
   primary_text: "Let's get in touch."
   styling: alternative
-template: page
+template: contact
 title: Contact
 updated_by: fe05d842-6ed2-441d-9842-d8a76343bd81
-updated_at: 1791331066
+updated_at: 1793474029
 ---

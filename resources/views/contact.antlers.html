@@ -6,6 +6,70 @@
     </div>
 </header>
 
-<div class="pt-8 pb-12 px-4 mx-auto max-w-[56ch] text-lg leading-[1.8] wrap-anywhere md:pt-0 md:pb-36">
-    <div class="prose">{{ content | widont }}</div>
+{{ if content }}
+    <div class="pt-8 pb-12 px-4 mx-auto max-w-[56ch] text-lg leading-[1.8] wrap-anywhere md:pt-0 md:pb-36">
+        <div class="prose">{{ content | widont }}</div>
+    </div>
+{{ /if }}
+
+<div class="px-4 pb-12 bg-linear-to-br from-tan-light from-50% to-crimson to-50%">
+    <div class="bg-white shadow-lg max-w-xl mx-auto p-4">
+        {{ form:contact }}
+            {{ if success }}
+                <div class="p-8">
+                    {{ success }}
+                </div>
+            {{ else }}
+                {{ if errors }}
+                    <div class="bg-red-300 text-white p-2">
+                        {{ errors }}
+                            {{ value }}<br>
+                        {{ /errors }}
+                    </div>
+                {{ /if }}
+
+                {{ fields }}
+                    <div class="mb-4">
+                        <label >
+                            <span class="block pb-1.5 cursor-text">
+                                {{ display }}
+                                {{ if validate | contains:required }}
+                                    *
+                                {{ /if }}
+
+                            </span>
+                            {{ field }}
+                        </label>
+                        {{ if error }}
+                            <p class="text-crimson-dark bg-tan-light pl-2 py-1">{{ error }}</p>
+                        {{ /if }}
+                    </div>
+                {{ /fields }}
+
+                <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
+
+                {{# <div class="mb-4">
+                    <label class="contact-form__turnstile-wrapper">
+                        <span class="input__label">Are You Human?</span>
+                        <div
+                            class="cf-turnstile contact-form__turnstile jagged-turnstile" data-jagged="dark"
+                            data-sitekey="{{ config:services:cloudflare:turnstile:sitekey }}"
+                            data-theme="light"
+                            data-size="flexible"
+                            data-language="en-US"
+                        ></div>
+                    </label>
+                </div> #}}
+
+                <button id="contact-form-submit" type="submit" class="button w-full">Submit</button>
+            {{ /if }}
+
+        {{ /form:contact }}
+    </div>
 </div>
+
+{{ once }}
+    {{ push:scripts }}
+        {{ turnstile:script }}
+    {{ /push:scripts }}
+{{ /once }}
