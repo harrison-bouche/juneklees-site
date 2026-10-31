@@ -4,6 +4,8 @@ email:
   -
     id: jHGqk3b7Uwi23lchzN7GD
     to: compassamerica76@gmail.com
-    from: mail@juneklees.com
+    from: no-reply@juneklees.com
     subject: 'A new message has arrived from your contact form.'
-    mailer: log
+    mailer: resend
+    html: mail/contact
+    text: mail/contact
