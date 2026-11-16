@@ -15,7 +15,6 @@
         "laravel/tinker": "^3.0",
         "resend/resend-laravel": "^1.7",
         "statamic/cms": "^6.0",
-        "statamic/ssg": "^4.1",
         "stoffelio/statamic-turnstile": "^1.4"
     },
     "require-dev": {

@@ -30,8 +30,13 @@ tabs:
             import: button
             prefix: hero_
       -
-        display: Logos
+        display: Companies
         fields:
+          -
+            handle: companies_section_heading
+            field:
+              type: text
+              display: 'Section Heading'
           -
             handle: companies
             field:
@@ -51,6 +56,14 @@ tabs:
                           field:
                             type: text
                             display: 'Company Title'
+                            width: 50
+                        -
+                          handle: company_website
+                          field:
+                            default_option: url
+                            type: link
+                            display: 'Company Website'
+                            width: 50
                         -
                           handle: company_logo
                           field:

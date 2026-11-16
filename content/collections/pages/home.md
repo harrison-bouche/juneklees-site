@@ -15,7 +15,7 @@ hero_content: |-
   As an engaging speaker suitable for all audiences, she creates a welcoming experience and hopes to leave participants understanding how they can concretely shape the future through empowered civic mindsets.
 title: 'June Klees, Ph.D'
 updated_by: fe05d842-6ed2-441d-9842-d8a76343bd81
-updated_at: 1792957680
+updated_at: 1794847270
 companies:
   -
     id: TTg5wqB166j6YPtwR5rOe
@@ -23,24 +23,28 @@ companies:
     company_logo: companies/waging-dialogue.jpg
     type: company
     enabled: true
+    company_website: 'https://wagingdialogue.org/'
   -
     id: M2svZDErdF_Tin-kx9NeH
     company_title: 'American Merchant Marine Veterans'
     company_logo: companies/ammv.png
     type: company
     enabled: true
+    company_website: 'https://ammv.us/'
   -
     id: A2ZDJB5icJoAZyg01RyOT
     company_title: 'Better Together America'
     company_logo: companies/better-together-america.svg
     type: company
     enabled: true
+    company_website: 'https://www.bettertogetheramerica.org/'
   -
     id: YLhiKwAb91Dxvfn_s1tfa
     company_title: 'Health & Democracy'
     company_logo: companies/health-and-democracy-logo.png
     type: company
     enabled: true
+    company_website: 'https://www.healthydemocracypartners.org/'
 about_image: images/june-headshot.jpg
 about_section_heading:
   supporting_text: 'Civics Professor'
@@ -115,4 +119,5 @@ cta_button_group:
     link: 'entry::0ecc4df2-a608-450e-aab6-c7d3961c9f65'
     type: button
     enabled: true
+companies_section_heading: 'June is proud to support & amplify the work of:'
 ---
