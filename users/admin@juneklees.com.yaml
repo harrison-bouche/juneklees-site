@@ -1,6 +1,7 @@
 super: true
+name: Administrator
 id: fe05d842-6ed2-441d-9842-d8a76343bd81
-password_hash: $2y$12$EPEiCc5yWeXA/P5iuYUm5ucrOJHCR.609BuAGyStwcJvjlUiXtQci
+password_hash: $2y$12$zdmzvwM1qvpfq.Q5ZufxAO.s17wBoZqdu/rGBFfFWPk6JrFQIZQiW
 preferences:
   collections:
     pages:
