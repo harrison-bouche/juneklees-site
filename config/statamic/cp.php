@@ -53,7 +53,30 @@ return [
     */
 
     'widgets' => [
-        //
+        [ 
+            'type' => 'collection',
+            'collection' => 'pages',
+            'limit' => 10,
+            'width' => 'sm'
+        ],
+        [
+            'type' => 'collection',
+            'collection' => 'content',
+            'limit' => 10,
+            'width' => 'lg',
+            'fields' => ['appeared_on']
+        ], 
+        [
+            'type' => 'updater',
+            'width' => 'sm',
+        ],
+        [ 
+            'type' => 'form',
+            'form' => 'contact',
+            'fields' => ['name', 'email', 'subject'],
+            'limit' => 10,
+            'width' => 'lg'
+        ], 
     ],
 
     /*
