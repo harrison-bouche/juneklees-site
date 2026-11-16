@@ -1,93 +1,90 @@
-<!-- statamic:hide -->
-# Cool Writings
-<!-- /statamic:hide -->
+# June Klees, Ph.D
 
-A typography-led journal for Statamic, with generous whitespace, teal ink details, and a little ’90s personality. Version 3.0.0 brings a complete editorial refresh, built-in article search, and light and dark themes.
+The personal website of June Klees, Ph.D: educator, academic coach, facilitator, podcaster, and speaker focused on applied civics. The site has a homepage, about and contact pages, and a library of content (articles, podcast episodes, talks, and events).
 
-## Features
+It's built with [Statamic 6](https://statamic.dev) (a flat-file CMS on [Laravel](https://laravel.com/docs)), with Antlers templates, Tailwind CSS 4, and Alpine.js. Content is stored as Markdown/YAML files in the repo, so there's no database to set up.
 
-- Fluid Inter typography, open article rows, and a fine-lined canvas with small handwritten details.
-- Light and dark themes with a miniature rocker switch. Your choice is remembered across pages and visits.
-- Article search across titles, excerpts, and full text, using Statamic’s local index.
-- Markdown articles with considered headings, quotes, images, lists, code, and tables, followed by up to two more published stories.
-- A chronological archive with ten articles per page, plus topics with descriptions and article counts.
-- A fuller About page, a custom 404 page, and the original three sample stories.
-- Responsive navigation, keyboard focus states, Escape-to-close controls, and reduced-motion support.
-- Editable site settings and social links, with Antlers templates, Tailwind CSS 4, Vite 8, and Alpine.js 3.
+## Project layout
 
-<!-- statamic:hide -->
-## Screenshots
+| Path | What's in it |
+| --- | --- |
+| `content/` | Entries, globals, navigation, and taxonomies (managed through the Control Panel) |
+| `resources/views/` | Antlers templates (`layout.antlers.html` is the main layout) |
+| `resources/blueprints/`, `resources/fieldsets/` | Field definitions for the Control Panel |
+| `resources/forms/contact.yaml` | Contact form config, including where submission emails go |
+| `resources/css/`, `resources/js/` | Front-end assets built by Vite |
+| `public/assets/` | Uploaded images and files |
+| `users/` | Control Panel user accounts |
+| `storage/forms/` | Contact form submissions (gitignored) |
 
-![Cool Writings 3.0.0 in light mode](https://raw.githubusercontent.com/statamic/starter-kit-cool-writings/master/screenshot.png)
+## Local development
 
-[Dark mode and more screenshots](https://github.com/statamic/starter-kit-cool-writings/tree/master/screenshots) · [Square thumbnail](https://raw.githubusercontent.com/statamic/starter-kit-cool-writings/master/thumbnail.png)
-<!-- /statamic:hide -->
+**Requirements:** PHP 8.5+, Composer, and Node.js. On macOS, [Laravel Herd](https://herd.laravel.com) covers PHP and Composer. For other setups, see [Statamic's installation requirements](https://statamic.dev/getting-started/requirements).
 
-## Quick start
+1. Clone the repo and run the setup script:
 
-Create a site with the [Statamic CLI](https://github.com/statamic/cli):
+   ```bash
+   composer setup
+   ```
 
-```sh
-statamic new your-site statamic/starter-kit-cool-writings
-```
+   This installs PHP and npm dependencies, creates `.env` from `.env.example`, generates an app key, and builds the front-end assets.
 
-Or install the kit into a fresh [Statamic site](https://statamic.dev/installation):
+2. Start the dev server and Vite:
 
-```sh
-php please starter-kit:install statamic/starter-kit-cool-writings --clear-site
-```
+   ```bash
+   composer dev
+   ```
 
-The `--clear-site` option replaces existing site content. Use a fresh installation or back up your site first.
+   If you use Herd, link the folder ([Herd docs](https://herd.laravel.com/docs/macos/getting-started/sites)) and visit `http://juneklees.test` instead. Run `npm run dev` for hot reloading, and set `APP_URL` in `.env` to match your local URL.
 
-Follow the installer’s prompts to create a user, then visit `/cp` to start editing. You can also create a super user with:
+3. Login to the Control Panel with the existing admin user.
 
-```sh
-php please make:user
-```
+### Contact form locally
 
-Production assets are included, so you can use the kit without a frontend build. To work on the templates and styles, use Node.js 20.19+ or 22.12+:
+By default `.env.example` sets `MAIL_MAILER=log`, but the contact form is set to send through Resend (`mailer: resend` in `resources/forms/contact.yaml`). To test sending for real, add `RESEND_API_KEY` to `.env`. Otherwise, check `storage/forms/contact/` for saved submissions.
 
-```sh
-npm install
-npm run dev
-```
+The form uses Cloudflare Turnstile for spam protection. For local testing, use Cloudflare's [dummy test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) for `TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`.
 
-Build the production assets when you’re ready:
+### Useful docs
 
-```sh
-npm run build
-```
+- [Statamic: Antlers templating](https://statamic.dev/antlers)
+- [Statamic: Blueprints & fields](https://statamic.dev/blueprints)
+- [Statamic: Forms](https://statamic.dev/forms)
+- [Laravel: Configuration](https://laravel.com/docs/configuration)
 
-## Writing and customization
+## Production deployment
 
-Write articles in Markdown and add a short excerpt and topics in the article editor. Topic descriptions are optional and appear on both the topic list and the individual topic page. The home page, About page, archive introduction, and topic introduction are editable content entries. Site name and social links live in the Settings globals.
+The site is deployed with [Coolify](https://coolify.io/docs), which builds the app from this repo (no Dockerfile, so Coolify's [Nixpacks](https://nixpacks.com/docs/providers/php) build is used) and redeploys on push to `main`. For general guidance, see Statamic's [deployment docs](https://statamic.dev/getting-started/deploying) and Laravel's [deployment docs](https://laravel.com/docs/deployment).
 
-Component styling lives in the templates as Tailwind utilities. Shared partials handle article rows, navigation, search, the theme switch, and the canvas frame. `resources/css/prose.css` styles the HTML produced by Markdown; `resources/css/site.css` contains the Tailwind theme and shared defaults.
+### Environment variables
 
-## Search
+Set these in Coolify's **Environment Variables** tab, starting from `.env.example`:
 
-The search icon in the navigation expands into an input. Results include published articles matching their title, excerpt, or full text. The local index is created on the first search and updates when articles are saved through the control panel.
+| Variable | Value |
+| --- | --- |
+| `APP_ENV` | `production` |
+| `APP_DEBUG` | `false` |
+| `APP_KEY` | Generate with `php artisan key:generate --show` |
+| `APP_URL` | The live site URL (`https://...`) |
+| `MAIL_MAILER` | `resend` |
+| `RESEND_API_KEY` | From the [Resend dashboard](https://resend.com/docs/send-with-laravel) (the `juneklees.com` domain must be verified) |
+| `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | From the Cloudflare Turnstile dashboard |
+| `STATAMIC_LICENSE_KEY` | Only needed if Statamic Pro is enabled |
 
-After editing article files directly, rebuild it with:
+The app trusts all proxies (`bootstrap/app.php`) so HTTPS URLs are generated correctly behind Coolify's reverse proxy.
 
-```sh
-php please search:update writings
-```
+### Persistent storage
 
-The index is configured in `config/statamic/search.php`, the route in `routes/web.php`, and the results template in `resources/views/search.antlers.html`. Search requires a running Statamic site and is not available in a static HTML export.
+Each deploy creates a fresh container, so any files written at runtime are lost unless they're on a volume. In Coolify, go to **Configuration → Persistent Storage** and add a volume for form submissions:
 
-## Light and dark themes
+- **Destination path:** `/app/storage/forms` (check the app's path with `pwd` in the container terminal if it differs)
 
-The theme starts with your operating system’s preference. Flip the light switch in the navigation to choose a theme; the browser remembers that choice. Tailwind’s `dark:` utilities follow the selected theme, with a system-preference fallback when JavaScript is unavailable.
+Mount only `storage/forms`, not all of `storage/`, because Laravel needs the `storage/framework/` subfolders that ship with the build. If submissions fail to save after adding the volume, fix the ownership with a post-deployment command, for example `chown -R www-data:www-data /app/storage/forms`. Coolify doesn't back up file volumes, so back up this volume separately if the submissions matter.
 
-The Surge and Reebok sample images include `-dark.jpg` variants beside the originals in `public/assets/content`. Their article Markdown uses `<picture>` with a `data-theme-dark` source. The theme switch updates that source alongside the page colors; its `prefers-color-scheme: dark` media attribute provides the fallback without JavaScript. Regular photographs can use the same image in both themes.
+### Editing content in production
 
-## Upgrading from 2.x
+Content, users, and uploaded assets live in the repo. **Changes made in the production Control Panel are lost on the next deploy** unless you either:
 
-This is a starter kit, so installing a new release does not automatically merge the design into a customized site. For an existing site, compare the 3.0.0 templates, styles, JavaScript, blueprints, and search configuration with your own changes. Rebuild the frontend assets after merging.
-
-The original sample entry IDs and URLs are preserved. The content model adds an optional topic description and exposes the existing topics relationship in the article editor.
-
-## Contributing
-
-Contributions are welcome. Please read the [code of conduct](https://github.com/statamic/cms/wiki/Code-of-Conduct) before contributing.
+- make content changes locally and push them, or
+- turn on [Statamic's Git integration](https://statamic.dev/git-automation) (`STATAMIC_GIT_ENABLED=true`) so Control Panel edits are committed back to the repo, or
+- add persistent volumes for `content/`, `users/`, and `public/assets/`.
